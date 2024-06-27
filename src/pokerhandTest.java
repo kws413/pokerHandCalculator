@@ -22,7 +22,6 @@ public class pokerhandTest {
 
     @Test
     public void canCreateHand() {
-
         Card[] allcards = new Card[5];
         for (int i = 0; i < 5; i++) {
             Card card = new Card(i, "Hearts");
@@ -30,5 +29,19 @@ public class pokerhandTest {
         }
         Pokerhand hand = new Pokerhand(allcards);
         assertTrue(hand.handSize());
+
+    }
+
+    @Test
+    public void createOversizeHand() {
+        Card[] allcards = new Card[5];
+        for (int i = 0; i < 5; i++) {
+            Card card = new Card(i, "Hearts");
+            allcards[i] = card;
+        }
+        assertThrows(IncorrectHandSize.class ,() -> {
+            Pokerhand hand = new Pokerhand(allcards);
+        });
+
     }
 }
