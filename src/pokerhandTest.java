@@ -1,5 +1,7 @@
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -18,9 +20,15 @@ public class pokerhandTest {
         assertEquals("Queen", card.getRank());
     }
 
-    /* 
+    @Test
     public void canCreateHand() {
-        assert
+
+        Card[] allcards = new Card[5];
+        for (int i = 0; i < 5; i++) {
+            Card card = new Card(i, "Hearts");
+            allcards[i] = card;
+        }
+        Pokerhand hand = new Pokerhand(allcards);
+        assertTrue(hand.handSize());
     }
-        */
 }
