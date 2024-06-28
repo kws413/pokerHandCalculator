@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +20,7 @@ public class pokerhandTest {
     }
 
     @Test
-    public void canCreateHand() {
+    public void canCreateHand() throws IncorrectHandSize{
         Card[] allcards = new Card[5];
         for (int i = 0; i < 5; i++) {
             Card card = new Card(i, "Hearts");
@@ -34,8 +33,8 @@ public class pokerhandTest {
 
     @Test
     public void createOversizeHand() {
-        Card[] allcards = new Card[5];
-        for (int i = 0; i < 5; i++) {
+        Card[] allcards = new Card[6];
+        for (int i = 0; i < 6; i++) {
             Card card = new Card(i, "Hearts");
             allcards[i] = card;
         }

@@ -1,4 +1,8 @@
 
-public class IncorrectHandSize {
+public class IncorrectHandSize extends Exception{
+
+    public IncorrectHandSize(String message) {
+        super(message);
+    }
 
 }
