@@ -6,13 +6,37 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
-
-
 public class PokerhandTest {
+
+    private List<Card> straight;
+    private List<Card> highCard;
+    private List<Card> pair;
 
     @BeforeEach
     public void setup() {
+        straight = Arrays.asList(
+            new Card(2, "Diamonds"),
+            new Card(3, "Clubs"),
+            new Card(4, "Hearts"),
+            new Card(5, "Spades"),
+            new Card(6, "Diamonds")
+        );
+
+        highCard = Arrays.asList(
+            new Card(2, "Diamonds"),
+            new Card(8, "Clubs"),
+            new Card(4, "Hearts"),
+            new Card(5, "Spades"),
+            new Card(12, "Diamonds")
+        );
+
+        pair = Arrays.asList(
+            new Card(2, "Diamonds"),
+            new Card(3, "Clubs"),
+            new Card(4, "Hearts"),
+            new Card(10, "Spades"),
+            new Card(10, "Diamonds")
+        );
     }
     
     @Test
@@ -30,37 +54,23 @@ public class PokerhandTest {
 
     @Test
     public void canCreateHand() throws IncorrectHandSize{
-        Card[] allcards = new Card[5];
-        for (int i = 0; i < 5; i++) {
-            Card card = new Card(i, "Hearts");
-            allcards[i] = card;
-        }
-        Pokerhand hand = new Pokerhand(allcards);
+        Pokerhand hand = new Pokerhand(highCard);
         assertTrue(hand.handSize());
-
     }
 
     @Test
     public void createOversizeHand() {
-        Card[] allcards = new Card[6];
-        for (int i = 0; i < 6; i++) {
-            Card card = new Card(i, "Hearts");
-            allcards[i] = card;
-        }
+        Card card = new Card(11, "Diamonds");
+        highCard.add(card);
         assertThrows(IncorrectHandSize.class ,() -> {
             @SuppressWarnings("unused")
-            Pokerhand hand = new Pokerhand(allcards);
+            Pokerhand hand = new Pokerhand(highCard);
         });
     }
 
     @Test
     public void canGetHandType() throws IncorrectHandSize{
-        Card[] allcards = new Card[5];
-        for (int i = 0; i < 5; i++) {
-            Card card = new Card(i, "Hearts");
-            allcards[i] = card;
-        }
-        Pokerhand hand = new Pokerhand(allcards);
+        Pokerhand hand = new Pokerhand(highCard);
         assertTrue((hand.getHandType() instanceof String));
     }
 }

@@ -1,10 +1,10 @@
-import java.util.Arrays;
+import java.util.List;
 
 public class Pokerhand {
 
-    private Card[] cards = {};
+    private List<Card> cards;
 
-    public Pokerhand(Card[] cards) throws IncorrectHandSize {
+    public Pokerhand(List<Card> cards) throws IncorrectHandSize {
         this.cards = cards;
         if (!handSize()) {
             throw new IncorrectHandSize("Hand not five cards.");
@@ -13,11 +13,11 @@ public class Pokerhand {
 
     @Override
     public String toString() {
-        return "Pokerhand [cards=" + Arrays.toString(cards) + "]";
+        return "Pokerhand [cards=" + cards.toString() + "]";
     }
 
     public Boolean handSize() {
-        return (cards.length == 5);
+        return (cards.size() == 5);
     }
 
     public String getHandType() {
