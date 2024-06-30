@@ -76,8 +76,8 @@ public class PokerhandTest {
     }
 
     @Test
-    public void handTypeIsHighCard() throws IncorrectHandSize{
+    public void handTypeIsFlush() throws IncorrectHandSize{
         Pokerhand hand = new Pokerhand(highCard);
-        assertEquals(hand.getHandType(), "High Card");
+        assertEquals(hand.getHandType(), "Flush");
     }
 }
