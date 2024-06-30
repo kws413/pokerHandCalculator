@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,29 +15,29 @@ public class PokerhandTest {
 
     @BeforeEach
     public void setup() {
-        straight = Arrays.asList(
+        straight = new ArrayList<>(List.of(
             new Card(2, "Diamonds"),
             new Card(3, "Clubs"),
             new Card(4, "Hearts"),
             new Card(5, "Spades"),
             new Card(6, "Diamonds")
-        );
+        ));
 
-        highCard = Arrays.asList(
+        highCard = new ArrayList<>(List.of(
             new Card(2, "Diamonds"),
             new Card(8, "Clubs"),
             new Card(4, "Hearts"),
             new Card(5, "Spades"),
             new Card(12, "Diamonds")
-        );
+        ));
 
-        pair = Arrays.asList(
+        pair = new ArrayList<>(List.of(
             new Card(2, "Diamonds"),
             new Card(3, "Clubs"),
             new Card(4, "Hearts"),
             new Card(10, "Spades"),
             new Card(10, "Diamonds")
-        );
+        ));
     }
     
     @Test
@@ -54,7 +55,7 @@ public class PokerhandTest {
 
     @Test
     public void canCreateHand() throws IncorrectHandSize{
-        Pokerhand hand = new Pokerhand(highCard);
+        Pokerhand hand = new Pokerhand(straight);
         assertTrue(hand.handSize());
     }
 
@@ -70,7 +71,7 @@ public class PokerhandTest {
 
     @Test
     public void canGetHandType() throws IncorrectHandSize{
-        Pokerhand hand = new Pokerhand(highCard);
+        Pokerhand hand = new Pokerhand(pair);
         assertTrue((hand.getHandType() instanceof String));
     }
 }

@@ -13,7 +13,7 @@ public class Pokerhand {
 
     @Override
     public String toString() {
-        return "Pokerhand [cards=" + cards.toString() + "]";
+        return "Pokerhand consists of " + cards.toString() + ".";
     }
 
     public Boolean handSize() {
