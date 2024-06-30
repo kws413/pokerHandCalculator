@@ -4,7 +4,7 @@ public class Pokerhand {
 
     private Card[] cards = {};
 
-    public  Pokerhand(Card[] cards) throws IncorrectHandSize {
+    public Pokerhand(Card[] cards) throws IncorrectHandSize {
         this.cards = cards;
         if (!handSize()) {
             throw new IncorrectHandSize("Hand not five cards.");

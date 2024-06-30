@@ -39,8 +39,19 @@ public class pokerhandTest {
             allcards[i] = card;
         }
         assertThrows(IncorrectHandSize.class ,() -> {
+            @SuppressWarnings("unused")
             Pokerhand hand = new Pokerhand(allcards);
         });
+    }
 
+    @Test
+    public void canGetHandType() throws IncorrectHandSize{
+        Card[] allcards = new Card[5];
+        for (int i = 0; i < 5; i++) {
+            Card card = new Card(i, "Hearts");
+            allcards[i] = card;
+        }
+        Pokerhand hand = new Pokerhand(allcards);
+        assertTrue((hand.getHandType() instanceof String));
     }
 }
