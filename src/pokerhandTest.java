@@ -1,18 +1,18 @@
-import org.*;
 import java.util.Arrays;
 import java.util.List;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
 
-public class pokerhandTest {
+public class PokerhandTest {
 
     @BeforeEach
     public void setup() {
-        List<Card> randomCards = new List<Card>() {
-              
-        };
     }
     
     @Test
