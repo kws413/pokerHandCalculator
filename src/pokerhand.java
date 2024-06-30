@@ -20,4 +20,8 @@ public class Pokerhand {
         return (cards.length == 5);
     }
 
+    public String getHandType() {
+        return "";
+    }
+
 }
