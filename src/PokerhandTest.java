@@ -74,4 +74,10 @@ public class PokerhandTest {
         Pokerhand hand = new Pokerhand(pair);
         assertTrue((hand.getHandType() instanceof String));
     }
+
+    @Test
+    public void handTypeIsHighCard() throws IncorrectHandSize{
+        Pokerhand hand = new Pokerhand(highCard);
+        assertEquals(hand.getHandType(), "High Card");
+    }
 }
