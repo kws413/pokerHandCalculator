@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Pokerhand {
+public class pokerhand {
 
     private Card[] cards = {};
 

@@ -1,10 +1,19 @@
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import org.*;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import java.util.List;
+
 
 public class pokerhandTest {
+
+    @BeforeEach
+    public void setup() {
+        List<Card> randomCards = new List<Card>() {
+              
+        };
+    }
     
     @Test
     public void isCard() {
