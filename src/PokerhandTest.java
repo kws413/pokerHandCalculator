@@ -12,6 +12,7 @@ public class PokerhandTest {
     private List<Card> straight;
     private List<Card> highCard;
     private List<Card> pair;
+    private List<Card> flush;
 
     @BeforeEach
     public void setup() {
@@ -37,6 +38,14 @@ public class PokerhandTest {
             new Card(4, "Hearts"),
             new Card(10, "Spades"),
             new Card(10, "Diamonds")
+        ));
+
+        flush = new ArrayList<>(List.of(
+            new Card(2, "Clubs"),
+            new Card(3, "Clubs"),
+            new Card(4, "Clubs"),
+            new Card(10, "Clubs"),
+            new Card(10, "Clubs")
         ));
     }
     
@@ -77,7 +86,7 @@ public class PokerhandTest {
 
     @Test
     public void handTypeIsFlush() throws IncorrectHandSize{
-        Pokerhand hand = new Pokerhand(highCard);
+        Pokerhand hand = new Pokerhand(flush);
         assertEquals(hand.getHandType(), "Flush");
     }
 }

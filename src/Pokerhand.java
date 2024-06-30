@@ -21,7 +21,20 @@ public class Pokerhand {
     }
 
     public String getHandType() {
+        if (isFlush()) {
+            return "Flush";
+        }
         return "";
+    }
+
+    private Boolean isFlush() {
+        String suit = cards.get(0).getSuit();
+        for (Card card : cards) {
+            if (!(suit == card.getSuit())) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
