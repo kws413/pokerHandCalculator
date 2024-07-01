@@ -1,3 +1,5 @@
+package poker;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -88,5 +90,11 @@ public class PokerhandTest {
     public void handTypeIsFlush() throws IncorrectHandSize{
         Pokerhand hand = new Pokerhand(flush);
         assertEquals(hand.getHandType(), "Flush");
+    }
+
+    @Test
+    public void handTypeIsStraight() throws IncorrectHandSize {
+        Pokerhand hand = new Pokerhand(straight);
+        assertEquals(hand.getHandType(), "Straight");
     }
 }
