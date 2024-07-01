@@ -1,5 +1,3 @@
-package poker;
-
 public class Card {
 
     private int strength;

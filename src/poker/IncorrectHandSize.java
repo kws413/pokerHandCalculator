@@ -1,4 +1,3 @@
-package poker;
 
 public class IncorrectHandSize extends Exception{
 
