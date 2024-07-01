@@ -12,6 +12,7 @@ public class PokerhandTest {
     private List<Card> highCard;
     private List<Card> pair;
     private List<Card> flush;
+    private List<Card> fourofakind;
 
     @BeforeEach
     public void setup() {
@@ -45,6 +46,14 @@ public class PokerhandTest {
             new Card(4, "Clubs"),
             new Card(10, "Clubs"),
             new Card(10, "Clubs")
+        ));
+
+        fourofakind = new ArrayList<>(List.of(
+            new Card(6, "Hearts"),
+            new Card(3, "Clubs"),
+            new Card(6, "Clubs"),
+            new Card(6, "Spades"),
+            new Card(6, "Diamonds")
         ));
     }
     
@@ -86,18 +95,27 @@ public class PokerhandTest {
     @Test
     public void handTypeIsFlush() throws IncorrectHandSize{
         Pokerhand hand = new Pokerhand(flush);
-        assertEquals(hand.getHandType(), "Flush");
+        assertEquals("Flush", hand.getHandType());
 
         Pokerhand falsehand = new Pokerhand(highCard);
-        assertEquals(falsehand.getHandType(), "High Card");
+        assertEquals("High Card", falsehand.getHandType());
     }
 
     @Test
     public void handTypeIsStraight() throws IncorrectHandSize {
         Pokerhand hand = new Pokerhand(straight);
-        assertEquals(hand.getHandType(), "Straight");
-        
+        assertEquals("Straight", hand.getHandType());
+
         Pokerhand falsehand = new Pokerhand(highCard);
-        assertEquals(falsehand.getHandType(), "High Card");
+        assertEquals("High Card", falsehand.getHandType());
+    }
+
+    @Test 
+    public void handTypeIsFourOfAKind() throws IncorrectHandSize {
+        Pokerhand hand = new Pokerhand(fourofakind);
+        assertEquals("Four of a kind", hand.getHandType());
+
+        Pokerhand falsehand = new Pokerhand(highCard);
+        assertEquals("High Card", falsehand.getHandType());
     }
 }
