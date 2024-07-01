@@ -87,11 +87,17 @@ public class PokerhandTest {
     public void handTypeIsFlush() throws IncorrectHandSize{
         Pokerhand hand = new Pokerhand(flush);
         assertEquals(hand.getHandType(), "Flush");
+
+        Pokerhand falsehand = new Pokerhand(highCard);
+        assertEquals(falsehand.getHandType(), "High Card");
     }
 
     @Test
     public void handTypeIsStraight() throws IncorrectHandSize {
         Pokerhand hand = new Pokerhand(straight);
         assertEquals(hand.getHandType(), "Straight");
+        
+        Pokerhand falsehand = new Pokerhand(highCard);
+        assertEquals(falsehand.getHandType(), "High Card");
     }
 }

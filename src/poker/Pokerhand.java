@@ -28,7 +28,7 @@ public class Pokerhand {
         } else if (isStraight()) {
             return "Straight";
         }
-        return "";
+        return "High Card";
     }
 
     private Boolean isFlush() {
