@@ -50,7 +50,7 @@ public class PokerhandTest {
 
         fourofakind = new ArrayList<>(List.of(
             new Card(6, "Hearts"),
-            new Card(3, "Clubs"),
+            new Card(10, "Clubs"),
             new Card(6, "Clubs"),
             new Card(6, "Spades"),
             new Card(6, "Diamonds")

@@ -27,6 +27,8 @@ public class Pokerhand {
             return "Flush";
         } else if (isStraight()) {
             return "Straight";
+        } else if (isFourofaKind()) {
+            return "Four of a kind";
         }
         return "High Card";
     }
@@ -49,6 +51,16 @@ public class Pokerhand {
             }
         }
         return true;
+    }
+
+    private Boolean isFourofaKind() {
+        cardSort();
+        if (cards.get(0).getNumberStrength() == cards.get(3).getNumberStrength()) {
+            return true;
+        } else if (cards.get(1).getNumberStrength() == cards.get(4).getNumberStrength()) {
+            return true;
+        }
+        return false;
     }
 
     private void cardSort() {
