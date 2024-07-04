@@ -118,4 +118,17 @@ public class PokerhandTest {
         Pokerhand falsehand = new Pokerhand(highCard);
         assertEquals("High Card", falsehand.getHandType());
     }
+
+    @Test
+    public void handTypeIsThreeOfAKind() throws IncorrectHandSize {
+        // Make four of a kind, three of a kind
+        Card card = new Card(5, "Diamonds");
+        fourofakind.remove(0);
+        fourofakind.add(card);
+        Pokerhand hand = new Pokerhand(fourofakind);
+        assertEquals("Three of a Kind", hand.getHandType());
+
+        Pokerhand falsehand = new Pokerhand(highCard);
+        assertEquals("High Card", falsehand.getHandType());
+    }
 }
