@@ -122,7 +122,7 @@ public class PokerhandTest {
     @Test
     public void handTypeIsThreeOfAKind() throws IncorrectHandSize {
         // Make four of a kind, three of a kind
-        Card card = new Card(5, "Diamonds");
+        Card card = new Card(5, "Diamonds"); // Card to replace instead of Four of a kind
         fourofakind.remove(0);
         fourofakind.add(card);
         Pokerhand hand = new Pokerhand(fourofakind);
