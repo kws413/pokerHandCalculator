@@ -13,9 +13,10 @@ public class PokerhandTest {
     private List<Card> pair;
     private List<Card> flush;
     private List<Card> fourofakind;
+    private Pokerhand highHand;
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws IncorrectHandSize {
         straight = new ArrayList<>(List.of(
             new Card(2, "Diamonds"),
             new Card(3, "Clubs"),
@@ -31,6 +32,7 @@ public class PokerhandTest {
             new Card(5, "Spades"),
             new Card(12, "Diamonds")
         ));
+        highHand = new Pokerhand(highCard);
 
         pair = new ArrayList<>(List.of(
             new Card(2, "Diamonds"),
@@ -54,6 +56,14 @@ public class PokerhandTest {
             new Card(6, "Clubs"),
             new Card(6, "Spades"),
             new Card(6, "Diamonds")
+        ));
+
+        pair = new ArrayList<>(List.of(
+            new Card(6, "Spades"),
+            new Card(6, "Clubs"),
+            new Card(10, "Hearts"),
+            new Card(8, "Spades"),
+            new Card(2, "Diamonds")
         ));
     }
     
@@ -96,27 +106,21 @@ public class PokerhandTest {
     public void handTypeIsFlush() throws IncorrectHandSize{
         Pokerhand hand = new Pokerhand(flush);
         assertEquals("Flush", hand.getHandType());
-
-        Pokerhand falsehand = new Pokerhand(highCard);
-        assertEquals("High Card", falsehand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
     }
 
     @Test
     public void handTypeIsStraight() throws IncorrectHandSize {
         Pokerhand hand = new Pokerhand(straight);
         assertEquals("Straight", hand.getHandType());
-
-        Pokerhand falsehand = new Pokerhand(highCard);
-        assertEquals("High Card", falsehand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
     }
 
     @Test 
     public void handTypeIsFourOfAKind() throws IncorrectHandSize {
         Pokerhand hand = new Pokerhand(fourofakind);
         assertEquals("Four of a kind", hand.getHandType());
-
-        Pokerhand falsehand = new Pokerhand(highCard);
-        assertEquals("High Card", falsehand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
     }
 
     @Test
@@ -127,8 +131,13 @@ public class PokerhandTest {
         fourofakind.add(card);
         Pokerhand hand = new Pokerhand(fourofakind);
         assertEquals("Three of a kind", hand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
+    }
 
-        Pokerhand falsehand = new Pokerhand(highCard);
-        assertEquals("High Card", falsehand.getHandType());
+    @Test
+    public void handTypeIsPair() throws IncorrectHandSize {
+        Pokerhand hand = new Pokerhand(pair);
+        assertEquals("Pair", hand.getHandType());
+        assertEquals("High Card", highHand);
     }
 }

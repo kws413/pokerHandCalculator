@@ -11,6 +11,7 @@ public class Pokerhand {
         if (!handSize()) {
             throw new IncorrectHandSize("Hand not five cards.");
         }
+        cardSort();
     }
 
     @Override
@@ -46,7 +47,6 @@ public class Pokerhand {
     }
 
     private Boolean isStraight() {
-        cardSort();
         for (int i = 0; i < cards.size() - 1; i++) {
             if (cards.get(i+1).getNumberStrength() != cards.get(i).getNumberStrength()+1) {
                 return false;
@@ -56,7 +56,6 @@ public class Pokerhand {
     }
 
     private Boolean isFourofaKind() {
-        cardSort();
         if (cards.get(0).getNumberStrength() == cards.get(3).getNumberStrength()) { // |2, 2, 2, 2|, 1
             return true;
         } else if (cards.get(1).getNumberStrength() == cards.get(4).getNumberStrength()) { // 4,| 2, 2, 2, 2|
@@ -66,7 +65,6 @@ public class Pokerhand {
     }
 
     private Boolean isThreeofaKind() {
-        cardSort();
         if (cards.get(0).getNumberStrength() == cards.get(2).getNumberStrength()) { // |3, 3, 3|, 2, 1
             return true;
         } else if (cards.get(1).getNumberStrength() == cards.get(3).getNumberStrength()) { // 5,| 2, 2, 2|, 1
