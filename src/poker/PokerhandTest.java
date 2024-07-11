@@ -126,7 +126,7 @@ public class PokerhandTest {
         fourofakind.remove(0);
         fourofakind.add(card);
         Pokerhand hand = new Pokerhand(fourofakind);
-        assertEquals("Three of a Kind", hand.getHandType());
+        assertEquals("Three of a kind", hand.getHandType());
 
         Pokerhand falsehand = new Pokerhand(highCard);
         assertEquals("High Card", falsehand.getHandType());

@@ -29,6 +29,8 @@ public class Pokerhand {
             return "Straight";
         } else if (isFourofaKind()) {
             return "Four of a kind";
+        } else if (isThreeofaKind()) {
+            return "Three of a kind";
         }
         return "High Card";
     }
@@ -55,9 +57,21 @@ public class Pokerhand {
 
     private Boolean isFourofaKind() {
         cardSort();
-        if (cards.get(0).getNumberStrength() == cards.get(3).getNumberStrength()) {
+        if (cards.get(0).getNumberStrength() == cards.get(3).getNumberStrength()) { // |2, 2, 2, 2|, 1
             return true;
-        } else if (cards.get(1).getNumberStrength() == cards.get(4).getNumberStrength()) {
+        } else if (cards.get(1).getNumberStrength() == cards.get(4).getNumberStrength()) { // 4,| 2, 2, 2, 2|
+            return true;
+        }
+        return false;
+    }
+
+    private Boolean isThreeofaKind() {
+        cardSort();
+        if (cards.get(0).getNumberStrength() == cards.get(2).getNumberStrength()) { // |3, 3, 3|, 2, 1
+            return true;
+        } else if (cards.get(1).getNumberStrength() == cards.get(3).getNumberStrength()) { // 5,| 2, 2, 2|, 1
+            return true;
+        } else if (cards.get(2).getNumberStrength() == cards.get(4).getNumberStrength()) { // 5, 4, |2, 2, 2|
             return true;
         }
         return false;
