@@ -138,6 +138,6 @@ public class PokerhandTest {
     public void handTypeIsPair() throws IncorrectHandSize {
         Pokerhand hand = new Pokerhand(pair);
         assertEquals("Pair", hand.getHandType());
-        assertEquals("High Card", highHand);
+        assertEquals("High Card", highHand.getHandType());
     }
 }
