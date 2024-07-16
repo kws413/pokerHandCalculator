@@ -175,4 +175,17 @@ public class PokerhandTest {
         assertEquals("Royal flush", hand.getHandType());
         assertEquals("High Card", highHand.getHandType());
     }
+
+    @Test public void handTypeIsStraightFlush() throws IncorrectHandSize {
+        List<Card> straightFlush = new ArrayList<>(List.of(
+            new Card(10, "Diamonds"),
+            new Card(9, "Diamonds"),
+            new Card(8, "Diamonds"),
+            new Card(7, "Diamonds"),
+            new Card(6, "Diamonds")
+        ));
+        Pokerhand hand = new Pokerhand(straightFlush);
+        assertEquals("Straight flush", hand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
+    }
 }

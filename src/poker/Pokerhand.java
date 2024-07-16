@@ -26,6 +26,8 @@ public class Pokerhand {
     public String getHandType() {
         if (isRoyalFlush()) {
             return "Royal flush";
+        } else if (isStraightFlush()) {
+            return "Straight flush";
         } else if (isFlush()) {
             return "Flush";
         } else if (isStraight()) {
@@ -125,6 +127,13 @@ public class Pokerhand {
             if (numStrengthGetter(1) == 11) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    private Boolean isStraightFlush() {
+        if (isFlush() && isStraight()) {
+            return true;
         }
         return false;
     }
