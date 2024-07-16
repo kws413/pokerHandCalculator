@@ -54,7 +54,7 @@ public class Pokerhand {
 
     private Boolean isStraight() {
         for (int i = 0; i < cards.size() - 1; i++) {
-            if (cards.get(i+1).getNumberStrength() != cards.get(i).getNumberStrength()+1) {
+            if (numStrengthGetter(i+1) != numStrengthGetter(i)+1) {
                 return false;
             }
         }
@@ -62,9 +62,9 @@ public class Pokerhand {
     }
 
     private Boolean isFourofaKind() {
-        if (cards.get(0).getNumberStrength() == cards.get(3).getNumberStrength()) { // |2, 2, 2, 2|, 1
+        if (numStrengthGetter(0) == numStrengthGetter(3)) { // |2, 2, 2, 2|, 1
             return true;
-        } else if (cards.get(1).getNumberStrength() == cards.get(4).getNumberStrength()) { // 4,| 2, 2, 2, 2|
+        } else if (numStrengthGetter(1) == numStrengthGetter(4)) { // 4,| 2, 2, 2, 2|
             return true;
         }
         return false;
@@ -72,7 +72,7 @@ public class Pokerhand {
 
     private Boolean isFullHouse() {
         if (isThreeofaKind()) {
-            if (cards.get(0).getNumberStrength() == cards.get(1).getNumberStrength() && cards.get(4).getNumberStrength() == cards.get(3).getNumberStrength()) {
+            if (numStrengthGetter(0) == numStrengthGetter(1) && numStrengthGetter(4) == numStrengthGetter(3)) {
                 return true;
             } 
         }
@@ -80,24 +80,24 @@ public class Pokerhand {
     }
 
     private Boolean isThreeofaKind() {
-        if (cards.get(0).getNumberStrength() == cards.get(2).getNumberStrength()) { // |3, 3, 3|, 2, 1
+        if (numStrengthGetter(0) == numStrengthGetter(2)) { // |3, 3, 3|, 2, 1
             return true;
-        } else if (cards.get(1).getNumberStrength() == cards.get(3).getNumberStrength()) { // 5,| 2, 2, 2|, 1
+        } else if (numStrengthGetter(1) == numStrengthGetter(3)) { // 5,| 2, 2, 2|, 1
             return true;
-        } else if (cards.get(2).getNumberStrength() == cards.get(4).getNumberStrength()) { // 5, 4, |2, 2, 2|
+        } else if (numStrengthGetter(2) == numStrengthGetter(4)) { // 5, 4, |2, 2, 2|
             return true;
         }
         return false;
     }
 
     private Boolean isPair() {
-        if (cards.get(0).getNumberStrength() == cards.get(1).getNumberStrength()) { // |4, 4|, 3, 2, 1
+        if (numStrengthGetter(0) == numStrengthGetter(1)) { // |4, 4|, 3, 2, 1
             return true;
-        } else if (cards.get(1).getNumberStrength() == cards.get(2).getNumberStrength()) { // 5,| 3, 3|, 2, 1
+        } else if (numStrengthGetter(1) == numStrengthGetter(2)) { // 5,| 3, 3|, 2, 1
             return true;
-        } else if (cards.get(2).getNumberStrength() == cards.get(3).getNumberStrength()) { // 5, 4, |2, 2|, 1
+        } else if (numStrengthGetter(2) == numStrengthGetter(3)) { // 5, 4, |2, 2|, 1
             return true;
-        } else if (cards.get(3).getNumberStrength() == cards.get(4).getNumberStrength()) { // 5, 4, 3, |2, 2|
+        } else if (numStrengthGetter(3) == numStrengthGetter(4)) { // 5, 4, 3, |2, 2|
             return true;
         }
         return false;
