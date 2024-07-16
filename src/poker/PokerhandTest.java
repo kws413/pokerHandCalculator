@@ -148,7 +148,7 @@ public class PokerhandTest {
         Card card = new Card(10, "Spades");
         fourofakind.add(card);
         Pokerhand hand = new Pokerhand(fourofakind);
-        assertEquals("Full House", hand.getHandType());
-        assertEquals("High Card", highHand);
+        assertEquals("Full house", hand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
     }
 }

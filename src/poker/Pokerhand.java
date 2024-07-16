@@ -30,6 +30,8 @@ public class Pokerhand {
             return "Straight";
         } else if (isFourofaKind()) {
             return "Four of a kind";
+        } else if (isFullHouse()) {
+            return "Full house";
         } else if (isThreeofaKind()) {
             return "Three of a kind";
         } else if (isPair()) {
@@ -62,6 +64,15 @@ public class Pokerhand {
             return true;
         } else if (cards.get(1).getNumberStrength() == cards.get(4).getNumberStrength()) { // 4,| 2, 2, 2, 2|
             return true;
+        }
+        return false;
+    }
+
+    private Boolean isFullHouse() {
+        if (isThreeofaKind()) {
+            if (cards.get(0).getNumberStrength() == cards.get(1).getNumberStrength() && cards.get(4).getNumberStrength() == cards.get(3).getNumberStrength()) {
+                return true;
+            } 
         }
         return false;
     }
