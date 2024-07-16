@@ -24,7 +24,9 @@ public class Pokerhand {
     }
 
     public String getHandType() {
-        if (isFlush()) {
+        if (isRoyalFlush()) {
+            return "Royal flush";
+        } else if (isFlush()) {
             return "Flush";
         } else if (isStraight()) {
             return "Straight";
@@ -118,7 +120,16 @@ public class Pokerhand {
         return false;
     }
 
-    private void cardSort() {
+    private Boolean isRoyalFlush() {
+        if (isFlush() && isStraight()) {
+            if (numStrengthGetter(1) == 11) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void cardSort() { // Low to high sorter
         Collections.sort(cards, Comparator.comparingInt(Card::getNumberStrength));
     }
 
