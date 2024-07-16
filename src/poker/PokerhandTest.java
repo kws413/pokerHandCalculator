@@ -151,4 +151,14 @@ public class PokerhandTest {
         assertEquals("Full house", hand.getHandType());
         assertEquals("High Card", highHand.getHandType());
     }
+
+    @Test
+    public void handTypeIsTwoPair() throws IncorrectHandSize {
+        pair.remove(4);
+        Card card = new Card(8, "Diamonds");
+        pair.add(card);
+        Pokerhand hand = new Pokerhand(pair);
+        assertEquals("Two pair", hand.getHandType());
+        assertEquals("High Card", highHand.getHandType());
+    }
 }

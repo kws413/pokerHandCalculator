@@ -34,6 +34,8 @@ public class Pokerhand {
             return "Full house";
         } else if (isThreeofaKind()) {
             return "Three of a kind";
+        } else if (isTwoPair()) {
+            return "Two pair";
         } else if (isPair()) {
             return "Pair";
         }
@@ -101,8 +103,27 @@ public class Pokerhand {
         return false;
     }
 
+    private Boolean isTwoPair() {
+        if (numStrengthGetter(0) == numStrengthGetter(1)) {
+            if (numStrengthGetter(2) == numStrengthGetter(3)) { // x, x, y, y, i
+                return true;
+            } else if (numStrengthGetter(3) == numStrengthGetter(4)) { // x, x, i, y, y
+                return true;
+            }
+        } else if (numStrengthGetter(1) == numStrengthGetter(2)) {
+            if (numStrengthGetter(3) == numStrengthGetter(4)) { // i, x, x, y, y
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void cardSort() {
         Collections.sort(cards, Comparator.comparingInt(Card::getNumberStrength));
+    }
+
+    private int numStrengthGetter(int index) {
+        return cards.get(index).getNumberStrength();
     }
 
 }
