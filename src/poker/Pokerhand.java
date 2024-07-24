@@ -28,12 +28,12 @@ public class Pokerhand {
             return "Royal flush";
         } else if (isStraightFlush()) {
             return "Straight flush";
-        } else if (isFlush()) {
-            return "Flush";
-        } else if (isStraight()) {
-            return "Straight";
         } else if (isFourofaKind()) {
             return "Four of a kind";
+        } else if (isStraight()) {
+            return "Straight";
+        } else if (isFlush()) {
+            return "Flush";
         } else if (isFullHouse()) {
             return "Full house";
         } else if (isThreeofaKind()) {
