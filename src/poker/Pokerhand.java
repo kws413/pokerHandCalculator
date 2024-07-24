@@ -30,12 +30,12 @@ public class Pokerhand {
             return "Straight flush";
         } else if (isFourofaKind()) {
             return "Four of a kind";
-        } else if (isStraight()) {
-            return "Straight";
+        }else if (isFullHouse()) {
+            return "Full house";
         } else if (isFlush()) {
             return "Flush";
-        } else if (isFullHouse()) {
-            return "Full house";
+        }  else if (isStraight()) {
+            return "Straight";
         } else if (isThreeofaKind()) {
             return "Three of a kind";
         } else if (isTwoPair()) {
